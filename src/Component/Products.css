@@ -1,0 +1,11 @@
+.Product-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+img{
+    height: 180px;
+}
+.product-items{
+    width: 30%;
+}

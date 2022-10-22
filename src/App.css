@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.navBar {
+  display: flex;
+}
+
+.navBar span {
+  margin: 15px 25px;
+}
+
+.links {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 25px;
+}
