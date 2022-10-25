@@ -1,7 +1,7 @@
 ## Useful hooks while using redux 
 1. useDispatch - it helps to dispatch the action 
 2. useSelector - it helps to subscribe the state which is in store it will always updated when our state is updated.
- 
+
 
 
 ## Steps which i did to get this output
@@ -24,3 +24,5 @@
 
 
 NOTE:- In redux toolkit createSlice has feature to change real state directly instead of new one but in redux we are not changing the real state directly.
+
+Important:- When our reducers funtion dispatched from action it will send payload to out store.

@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from "react";
 import './Products.css';
 import {add} from '../Store/CartSlice';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProduct } from "../Store/ProductSlice";
+import { STATUES } from "../Store/ProductSlice";
+
 
 const Product = () => {
-    const [product, setproduct] = useState([]);
-    const dispatch = useDispatch();
-    useEffect(() => {
-      const fetchProduct = async () => {
-        const res = await fetch("https://fakestoreapi.com/products");
-        const data = await res.json();
-        // console.log(data);
-        setproduct(data);
-      };
-      fetchProduct();
+  
+  const {data:product,Status} = useSelector((state)=> state.product);
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+      // ----------------  THUNK ASYNC OPERATION     ------------------//
+      dispatch(fetchProduct());
+      
+      
+      // ----------------  NORMAL ASYNC OPERATION     ------------------//
+      // const [product, setproduct] = useState([]);
+      
+      // const fetchProduct = async () => {
+      //   const res = await fetch("https://fakestoreapi.com/products");
+      //   const data = await res.json();
+      //   // console.log(data);
+      //   setproduct(data);
+      // };
+      // fetchProduct();
     }, []);
 
     const addToCard=(product)=>{
      dispatch(add(product))
+    }
+
+    if(Status === STATUES.LOADING){
+      return <h2>Loading....</h2>
     }
 
   return (
